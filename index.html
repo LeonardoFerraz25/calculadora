@@ -4,91 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Calculadora</title>
-    <style>
-        body{
-            background-color: crimson;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        h1{
-            color: white;
-            text-shadow: 2px 2px 2px black;
-            font-size: 3em;
-            text-decoration: underline;
-        }
-        div{
-            margin-top: 15px;
-            font-size: 18px;
-            background-color: blanchedalmond;
-        }
-        .botao{
-            margin-top: 10px;
-            font-size: 18px;
-
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Somando valores</h1>
-    <input type="number" name="txt1" id="txt1"> <strong>+</strong>
-    <input type="number" name="txt2" id="txt2"><br>
-    <input type="button" value="Somar" onclick="somar()" class="botao">
-    <div id="res">Resultado :</div>
-    <br>
-    <h1>Subtraindo valores</h1>
-    <input type="number" name="txt3" id="txt3"> <strong>-</strong>
-    <input type="number" name="txt4" id="txt4"><br>
-    <input type="button" value="Subtrair" onclick="subtrair()" class="botao">
-    <div id="res2">Resultado :</div>
-    <br>
-    <h1>Multiplicando valores</h1>
-    <input type="number" name="txt5" id="txt5"> <strong>*</strong>
-    <input type="number" name="txt6" id="txt6"><br>
-    <input type="button" value="Multiplicar" onclick="multiplicar()" class="botao">
-    <div id="res3">Resultado :</div>
-    <br>
-    <h1>Dividindo valores</h1>
-    <input type="number" name="txt7" id="txt7"> <strong>/</strong>
-    <input type="number" name="txt8" id="txt8"><br>
-    <input type="button" value="Dividir" onclick="dividir()" class="botao">
-    <div id="res4">Resultado :</div>
+    <main>
+        <div id="fundo">
+            <img src="fundo.jpg">
+        </div>
+        <div class="calculos">
+            <h1>Somando valores</h1>
+            <input type="number" name="txt1" id="txt1" class="caixa"> <strong>+</strong>
+            <input type="number" name="txt2" id="txt2" class="caixa">
+            <input type="button" value="Somar" onclick="somar()" class="botao">
+            <div id="res" class="total">Resultado :</div>
+            <hr>
+            <h1>Multiplicando valores</h1>
+            <input type="number" name="txt3" id="txt3" class="caixa"> <strong>x</strong>
+            <input type="number" name="txt4" id="txt4" class="caixa">
+            <input type="button" value="multiplicar" onclick="multiplicar()" class="botao">
+            <div id="res2" class="total">Resultado :</div>
+            <hr>
+            <h1>Subtraindo valores</h1>
+            <input type="number" name="txt5" id="txt5" class="caixa"> <strong>-</strong>
+            <input type="number" name="txt6" id="txt6" class="caixa">
+            <input type="button" value="subtrair" onclick="subtrair()" class="botao">
+            <div id="res3" class="total">Resultado :</div>
+            <hr>
+            <h1>Dividindo valores</h1>
+            <input type="number" name="txt7" id="txt7" class="caixa"> <strong>/</strong>
+            <input type="number" name="txt8" id="txt8" class="caixa">
+            <input type="button" value="dividir" onclick="dividir()" class="botao">
+            <div id="res4" class="total">Resultado :</div>
+            
+        </div>
+    </main>
+
     <script>
         function somar(){
-            var tn1 = window.document.getElementById('txt1')
-            var tn2 = window.document.getElementById('txt2')
-            var res = window.document.getElementById('res')
+            var tn1 = document.querySelector('input#txt1')
+            var tn2 = document.querySelector('input#txt2')
+            var res = document.querySelector('div#res')
             var n1 = Number(tn1.value)
             var n2 = Number(tn2.value)
             var s = n1 + n2
-            res.innerHTML = `A soma entre ${n1} + ${n2} é igual à = <strong>${s}</strong> `
-        }
-        function subtrair(){
-            var tn3 = window.document.getElementById('txt3')
-            var tn4 = window.document.getElementById('txt4')
-            var res2 = window.document.getElementById('res2')
-            var n3 = Number(tn3.value)
-            var n4 = Number(tn4.value)
-            var s2 = n3 - n4
-            res2.innerHTML =  `A subtração entre ${n3} - ${n4} é igual à = <strong>${s2}</strong> `
+            res.innerHTML = `A soma entre ${n1} + ${n2} é igual à = <strong>${s}</strong>`
         }
         function multiplicar(){
-            var tn5 = window.document.getElementById('txt5')
-            var tn6 = window.document.getElementById('txt6')
-            var res3 = window.document.getElementById('res3')
+            var tn3 = document.querySelector('input#txt3')
+            var tn4 = document.querySelector('input#txt4')
+            var res2 = document.querySelector('div#res2')
+            var n3 = Number(tn3.value)
+            var n4 = Number(tn4.value)
+            var s2 = n3 * n4
+            res2.innerHTML = `A multiplicação entre ${n3} x ${n4} é igual à = ${s2}`
+        }
+        function subtrair(){
+            var tn5 = document.querySelector('input#txt5')
+            var tn6 = document.querySelector('input#txt6')
+            var res3 = document.querySelector('div#res3')
             var n5 = Number(tn5.value)
             var n6 = Number(tn6.value)
-            var s3 = n5 * n6
-            res3.innerHTML = `A multiplicação entre ${n5} x ${n6} é igual à = <strong>${s3}</strong> `
+            var s3 = n5 - n6
+            res3.innerHTML = `A subtração entre ${n5} - ${n6} é igual à = ${s3}`
         }
         function dividir(){
-            var tn7 = window.document.getElementById('txt7')
-            var tn8 = window.document.getElementById('txt8')
-            var res4 = window.document.getElementById('res4')
+            var tn7 = document.querySelector('input#txt7')
+            var tn8 = document.querySelector('input#txt8')
+            var res4 = document.querySelector('div#res4')
             var n7 = Number(tn7.value)
             var n8 = Number(tn8.value)
             var s4 = n7 / n8
-            res4.innerHTML = `A multiplicação entre ${n7} / ${n8} é igual à = <strong>${s4}</strong> `
+            res4.innerHTML = `A divisão entre ${n7} / ${n8} é igual à = ${s4}`
         }
     </script>
 </body>
