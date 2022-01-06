@@ -45,6 +45,19 @@ h1{
 input.caixa{
     margin-bottom: 1rem;
     width: 2rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.075);
+}
+
+.botao{
+    padding: 3px 10px ;
+    border: none;
+    border-radius: 2px;
+    background: rgba( 255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.753) ;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 div{
@@ -57,5 +70,5 @@ div{
 .total{
     text-decoration: underline;
     margin-bottom: 2rem;
-    
+    font-size: 1rem;
 }
